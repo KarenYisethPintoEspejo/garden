@@ -15,8 +15,21 @@ import {
 
 // console.log(await getAllClients());
 
+// import {
+//     getAllStatus
+// } from "./module/requests.js";
+
+// console.log(await getAllStatus());
+
+
 import {
     getAll
 } from "./module/requests.js";
 
 console.log(await getAll());
+
+
+
+
+
+
