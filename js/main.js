@@ -1,7 +1,7 @@
-import { 
-    getAllOfficesCodeAndCity, 
-    getAllOfficesFromSpainCityAndMovil 
-} from "./module/offices.js"
+// import { 
+//     getAllOfficesCodeAndCity, 
+//     getAllOfficesFromSpainCityAndMovil 
+// } from "./module/offices.js"
 
 // import { 
 //     getAllEmployeesWithBossAndCodeSeven,
@@ -22,14 +22,17 @@ import {
 // console.log(await getAllStatus());
 
 
-import {
-    getAll
-} from "./module/requests.js";
+// import {
+//     getALLCodeRequests2008
+// } from "./module/requests.js";
 
-console.log(await getAll());
+// console.log(await getAllCodeClients2008());
+
+// import { getAllCodeRequestLate } from "./module/requests.js";
+// console.log(await getAllCodeRequestLate())
 
 
+import { getAllCodeTwoDays } from "./module/requests.js";
 
-
-
+console.log(await getAllCodeTwoDays());
 

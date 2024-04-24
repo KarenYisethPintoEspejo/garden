@@ -19,6 +19,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@formkit/tempo": "^0.1.1",
+    "date-fns": "^3.6.0",
     "json-server": "^1.0.0-alpha.23"
   }
 }

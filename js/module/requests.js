@@ -11,28 +11,50 @@ export const getAllStatus = async () => {
 
 
 
-// 8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008. Tenga en cuenta que deberá eliminar aquellos códigos de cliente que aparezcan repetidos.
 
-export const getAll = async() => {
-    let res = await fetch("http://localhost:5508/requests");
+// 9. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
+
+export const getAllCodeRequestLate = async () => {
+    let res = await fetch("http://localhost:5508/requests?date_wait_neq_date_delivery");
     let data = await res.json();
-    let dataUpdate = [];
-    let clientCodesIn2008 = new Set();
-
-    data.forEach(val => {
-        dataUpdate.push({
-            codigo: val.code_client
-        });
-
-        if (val.date_request.substring(0, 4) === "2008") {
-            clientCodesIn2008.add(val.code_client);
-        }
-    });
-
-    let uniqueClientCodesIn2008 = [...clientCodesIn2008];
-
-    return uniqueClientCodesIn2008;
+    let dataUpdate = data.map(val => ({
+        codigoPedido: val.code_request,
+        codigoCliente: val.code_client,
+        fechaEsperada: val.date_wait,
+        fechaEntrega: val.date_delivery
+    }));
+    return dataUpdate;
 }
 
 
- 
+// 10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
+
+import { parseISO, differenceInDays } from 'date-fns';
+
+export const getAllCodeTwoDays = async() => {
+    let res = await fetch("http://localhost:5508/requests");
+    let data = await res.json();
+    let dataUpdate = [];
+    
+    data.forEach(val => {
+        if (val.date_wait && val.date_delivery) {
+            let fechaEspera = parseISO(val.date_wait);
+            let fechaEntrega = parseISO(val.date_delivery);
+            let diferenciaDias = differenceInDays(fechaEspera, fechaEntrega); 
+
+            if (diferenciaDias >= 2) {
+                dataUpdate.push({ 
+                    codigoPedido: val.code_request,
+                    codigoCliente: val.code_client,
+                    fechaEspera: val.date_wait,
+                    fechaEntrega: val.date_delivery
+                });
+            }
+        }
+    });
+    
+    return dataUpdate;
+}
+
+
+
