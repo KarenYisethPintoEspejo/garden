@@ -48,9 +48,10 @@
 // console.log(await getAllPaymentMethods());
 
 
-import { getAllGamaOrnamentales } from "./module/products.js";
-console.log(await getAllGamaOrnamentales());
+// import { getAllGamaOrnamentales } from "./module/products.js";
+// console.log(await getAllGamaOrnamentales());
 
 
-
+import { getAllClientsMadrid1130 } from "./module/clients.js";
+console.log(await getAllClientsMadrid1130());
 

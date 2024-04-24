@@ -44,3 +44,4 @@ export const getAll = async()=>{
     });
     return dataUpdate;
 }
+
