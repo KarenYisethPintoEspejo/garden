@@ -32,7 +32,12 @@
 // console.log(await getAllCodeRequestLate())
 
 
-import { getAllCodeTwoDays } from "./module/requests.js";
+// import { getAllCodeTwoDays } from "./module/requests.js";
+// console.log(await getAllCodeTwoDays());
 
-console.log(await getAllCodeTwoDays());
+// import {getAllRejected2009} from "./module/requests.js";
+// console.log(await getAllRejected2009())
+
+import { getAll } from "./module/requests.js";
+console.log(await getAll())
 

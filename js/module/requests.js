@@ -56,5 +56,37 @@ export const getAllCodeTwoDays = async() => {
     return dataUpdate;
 }
 
+// 11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009.
 
+export const getAllRejected2009 = async() => {
+    let res = await fetch("http://localhost:5508/requests?status=Rechazado")
+    let data = await res.json();
+    let dataUpdate = [];
+    data.forEach(val=>{
+        if(val.date_request.split('-')[0]==="2009"){
+            dataUpdate.push({
+                ...val
+            })
+        }
+    })
+    return dataUpdate
+}
+
+// 12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
+
+export const getAll = async() => {
+    let res = await fetch("http://localhost:5508/requests?status=Entregado");
+    let data = await res.json(); 
+    let dataUpdate = [];
+
+    data.forEach(val => {
+        if (val.date_delivery && val.date_delivery.split('-')[1] === "01") {
+            dataUpdate.push({
+                ...val
+            });
+        }
+    });
+
+    return dataUpdate;
+}
 
