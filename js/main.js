@@ -44,5 +44,13 @@
 // import { getAllPaymentsPayPal2008 } from "./module/payments.js";
 // console.log(await getAllPaymentsPayPal2008());
 
-import {getAllPaymentMethods} from "./module/payments.js"
-console.log(await getAllPaymentMethods());
+// import {getAllPaymentMethods} from "./module/payments.js"
+// console.log(await getAllPaymentMethods());
+
+
+import { getAllGamaOrnamentales } from "./module/products.js";
+console.log(await getAllGamaOrnamentales());
+
+
+
+
