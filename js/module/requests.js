@@ -74,7 +74,7 @@ export const getAllRejected2009 = async() => {
 
 // 12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
 
-export const getAll = async() => {
+export const getAllDeliveredJanuary = async() => {
     let res = await fetch("http://localhost:5508/requests?status=Entregado");
     let data = await res.json(); 
     let dataUpdate = [];

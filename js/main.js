@@ -38,6 +38,11 @@
 // import {getAllRejected2009} from "./module/requests.js";
 // console.log(await getAllRejected2009())
 
-import { getAll } from "./module/requests.js";
-console.log(await getAll())
+// import { getAllDeliveredJanuary } from "./module/requests.js";
+// console.log(await getAllDeliveredJanuary())
 
+// import { getAllPaymentsPayPal2008 } from "./module/payments.js";
+// console.log(await getAllPaymentsPayPal2008());
+
+import {getAllPaymentMethods} from "./module/payments.js"
+console.log(await getAllPaymentMethods());
