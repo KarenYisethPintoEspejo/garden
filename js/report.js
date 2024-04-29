@@ -2,8 +2,9 @@
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
-// import {getAllStatus} from "./module/requests.js"
+import {getAllStatus, getAllCodeRequestLate} from "./module/requests.js"
 import {getALLCodeRequests2008} from "./module/payments.js"
+
 
 
 
@@ -16,7 +17,7 @@ const queryAboutTable3 = document.querySelector("#queryAboutTable3");
 const queryAboutTable4 = document.querySelector("#queryAboutTable4"); 
 const queryAboutTable5 = document.querySelector("#queryAboutTable5"); 
 const queryAboutTable6 = document.querySelector("#queryAboutTable6"); 
-const queryAboutTable7 = document.querySelector("#queryAboutTable7"); 
+// const queryAboutTable7 = document.querySelector("#queryAboutTable7"); 
 const queryAboutTable8 = document.querySelector("#queryAboutTable8"); 
 const queryAboutTable9 = document.querySelector("#queryAboutTable9"); 
 const queryAboutTable10 = document.querySelector("#queryAboutTable10"); 
@@ -209,33 +210,33 @@ queryAboutTable6.addEventListener("click", async(e)=>{
 // 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
 
 
-// queryAboutTable7.addEventListener("click", async(e)=>{
-//     let [,report__container] = queryAboutTable7.children
-//     if(!report__container.innerHTML){
-//         let data = await getAllStatus();
-//         let plantilla = "";
-//         console.log(data);
-//         data.forEach(val => {
-//             plantilla += `
-//                 <div class="report__card">
-//                 <div class="card__title">
-//                     <div> Estados pedidos</div>
-//                 </div>
+queryAboutTable7.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable7.children
+    if(!report__container.innerHTML){
+        let data = await getAllStatus();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div> Estados pedidos</div>
+                </div>
             
-//                 <div class="card__body">
-//                     <div class="body__marck">
-//                         <p><b>Nombre_estados: </b>${val.estadosUnicos}</p>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre_estados: </b>${val}</p>
                         
                 
 
-//                     </div>
-//                 </div>
-//             </div>
-//             `;
-//         });
-//         report__container.innerHTML = plantilla;
-//     }
-// })
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
 
 // 8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008.
 
@@ -258,6 +259,36 @@ queryAboutTable8.addEventListener("click", async(e)=>{
                         
                 
 
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+//9. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
+
+queryAboutTable9.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable9.children
+    if(!report__container.innerHTML){
+        let data = await getAllCodeRequestLate();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Pedidos no entregados a tiempo</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_pedido: </b>${val.codigoPedido}</p>
+                        <p><b>Codigo_cliente: </b>${val.codigoCliente}</p>
+                        <p><b>Fecha_esperada: </b>${val.fechaEsperada}</p>
+                        <p><b>Fecha_entrega: </b>${val.fechaEntrega}</p>
                     </div>
                 </div>
             </div>

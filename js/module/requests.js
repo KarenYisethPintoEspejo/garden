@@ -29,7 +29,7 @@ export const getAllCodeRequestLate = async () => {
 
 // 10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
 
-import { parseISO, differenceInDays } from 'date-fns';
+import { parseISO, differenceInDays } from '../../node_modules/date-fns/index.mjs';
 
 export const getAllCodeTwoDays = async() => {
     let res = await fetch("http://localhost:5508/requests");
