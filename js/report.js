@@ -2,7 +2,7 @@
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
-import {getAllStatus, getAllCodeRequestLate} from "./module/requests.js"
+import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays} from "./module/requests.js"
 import {getALLCodeRequests2008} from "./module/payments.js"
 
 
@@ -288,6 +288,36 @@ queryAboutTable9.addEventListener("click", async(e)=>{
                         <p><b>Codigo_pedido: </b>${val.codigoPedido}</p>
                         <p><b>Codigo_cliente: </b>${val.codigoCliente}</p>
                         <p><b>Fecha_esperada: </b>${val.fechaEsperada}</p>
+                        <p><b>Fecha_entrega: </b>${val.fechaEntrega}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+// 10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
+
+queryAboutTable10.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable10.children
+    if(!report__container.innerHTML){
+        let data = await getAllCodeTwoDays();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Pedidos no entregados a tiempo</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_pedido: </b>${val.codigoPedido}</p>
+                        <p><b>Codigo_cliente: </b>${val.codigoCliente}</p>
+                        <p><b>Fecha_esperada: </b>${val.fechaEspera}</p>
                         <p><b>Fecha_entrega: </b>${val.fechaEntrega}</p>
                     </div>
                 </div>
