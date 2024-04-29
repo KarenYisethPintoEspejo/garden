@@ -2,7 +2,8 @@
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
-import {getAllStatus} from "./module/requests.js"
+// import {getAllStatus} from "./module/requests.js"
+import {getALLCodeRequests2008} from "./module/payments.js"
 
 
 
@@ -208,22 +209,52 @@ queryAboutTable6.addEventListener("click", async(e)=>{
 // 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
 
 
-queryAboutTable7.addEventListener("click", async(e)=>{
-    let [,report__container] = queryAboutTable7.children
+// queryAboutTable7.addEventListener("click", async(e)=>{
+//     let [,report__container] = queryAboutTable7.children
+//     if(!report__container.innerHTML){
+//         let data = await getAllStatus();
+//         let plantilla = "";
+//         console.log(data);
+//         data.forEach(val => {
+//             plantilla += `
+//                 <div class="report__card">
+//                 <div class="card__title">
+//                     <div> Estados pedidos</div>
+//                 </div>
+            
+//                 <div class="card__body">
+//                     <div class="body__marck">
+//                         <p><b>Nombre_estados: </b>${val.estadosUnicos}</p>
+                        
+                
+
+//                     </div>
+//                 </div>
+//             </div>
+//             `;
+//         });
+//         report__container.innerHTML = plantilla;
+//     }
+// })
+
+// 8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008.
+
+queryAboutTable8.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable8.children
     if(!report__container.innerHTML){
-        let data = await getAllStatus();
+        let data = await getALLCodeRequests2008();
         let plantilla = "";
         console.log(data);
-        data.forEach(val => {
+        data.forEach(payment => {
             plantilla += `
                 <div class="report__card">
                 <div class="card__title">
-                    <div> Estados pedidos</div>
+                    <div>Clientes codigo pago 2008</div>
                 </div>
             
                 <div class="card__body">
                     <div class="body__marck">
-                        <p><b>Nombre_estados: </b>${val.estadosUnicos}</p>
+                        <p><b>Codigo_cliente: </b>${payment}</p>
                         
                 
 
