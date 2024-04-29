@@ -2,7 +2,7 @@ import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "./mo
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
-import {getALLCodeRequests2008, getAllPaymentsPayPal2008} from "./module/payments.js"
+import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 
 
 
@@ -28,6 +28,8 @@ import {getALLCodeRequests2008, getAllPaymentsPayPal2008} from "./module/payment
 // console.log(await getAllRejected2009()); //11
 // console.log(await getAllDeliveredJanuary()); //12
 // console.log(await getAllPaymentsPayPal2008()); //13
+// console.log(await getAllPaymentMethods()); //14
+
 
 
 
