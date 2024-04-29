@@ -8,7 +8,6 @@ export const getALLCodeRequests2008 = async()=>{
 
             dataUpdate.push(
                 payment.code_client,
-
             )
         }
     });
@@ -44,4 +43,18 @@ export const getAllPaymentMethods = async() => {
     let formaspago = new Set(data.map(val => val.payment));
     let formasUnicas = Array.from(formaspago);
     return formasUnicas;
+}
+
+// 2. 2.Muestra de clientes que han realizados pagos
+
+export const getAllPaymentClients2 = async() => {
+    let res = await fetch("")
+    let data = await res.json();
+    let dataUpdate= [];
+    data.forEach(val=>{
+        dataUpdate.push({
+            codigoClient: val.code_client,
+        })
+    })
+    return dataUpdate
 }

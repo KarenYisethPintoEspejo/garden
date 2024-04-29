@@ -11,6 +11,6 @@ export const getAllGamaOrnamentales =  async() =>{
             })
         }
     });
-    dataUpdate.sort((a, b) => b.price_sale - b.price_sale);
+    dataUpdate.sort((a, b) => b.price_sale - a.price_sale);
     return dataUpdate
 }

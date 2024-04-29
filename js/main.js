@@ -29,7 +29,7 @@
 // console.log(await getAllCodeClients2008());
 
 // import { getAllCodeRequestLate } from "./module/requests.js";
-// console.log(await getAllCodeRequestLate())
+// console.log(await getAllCodeRequestLate()) 
 
 
 // import { getAllCodeTwoDays } from "./module/requests.js";
@@ -52,6 +52,13 @@
 // console.log(await getAllGamaOrnamentales());
 
 
-import { getAllClientsMadrid1130 } from "./module/clients.js";
-console.log(await getAllClientsMadrid1130());
+// import { getAllClientsMadrid1130 } from "./module/clients.js";
+// console.log(await getAllClientsMadrid1130());
 
+
+// import {getClientAndSaleAgentFullName} from "./module/clients.js"
+// console.log(await getClientAndSaleAgentFullName());
+
+
+import {getClientAndSaleAgentFullName2} from "./module/clients.js"
+console.log(await getClientAndSaleAgentFullName2());
