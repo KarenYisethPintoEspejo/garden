@@ -3,6 +3,7 @@ import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNot
 import {getAllClientsFromSpain} from "./module/clients.js"
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
+import {getAllGamaOrnamentales} from "./module/products.js"
 
 
 
@@ -29,6 +30,7 @@ import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} 
 // console.log(await getAllDeliveredJanuary()); //12
 // console.log(await getAllPaymentsPayPal2008()); //13
 // console.log(await getAllPaymentMethods()); //14
+// console.log(await getAllGamaOrnamentales()); //15
 
 
 

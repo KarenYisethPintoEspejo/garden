@@ -4,6 +4,7 @@ import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNot
 import {getAllClientsFromSpain} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
+import {getAllGamaOrnamentales} from "./module/products.js"
 
 
 
@@ -454,6 +455,43 @@ queryAboutTable14.addEventListener("click", async(e)=>{
                         
                         <p><b>Tipo_pago: </b>${val}</p>
                 
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+// 15. Devuelve un listado con todos los productos que pertenecen a la gama `Ornamentales` y que tienen más de `100` unidades en stock. El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio.
+
+queryAboutTable15.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable15.children
+    if(!report__container.innerHTML){
+        let data = await getAllGamaOrnamentales();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Productos ornamentales >100 - stock</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_producto: </b>${val.code_product}</p>
+                        <p><b>Nombre: </b>${val.name}</p>
+                        <p><b>Gama: </b>${val.gama}</p>
+                        <p><b>Dimension: </b>${val.dimension}</p>
+                        <p><b>Provedor: </b>${val.provider}</p>
+                        <p><b>Stock: </b>${val.stock}</p>
+                        <p><b>Precio_venta: </b>${val.price_sale}</p>
+                        <p><b>id: </b>${val.id}</p>
+                        
+
+
                     </div>
                 </div>
             </div>
