@@ -2,6 +2,7 @@
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
+import {getAllStatus} from "./module/requests.js"
 
 
 
@@ -193,6 +194,37 @@ queryAboutTable6.addEventListener("click", async(e)=>{
                     <div class="body__marck">
                         <p><b>Nombre_Clientes: </b>${val.nombre}</p>
                         <p><b>Nacionalidad: </b>${val.nacionalidad}</p>
+                
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+// 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
+
+
+queryAboutTable7.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable7.children
+    if(!report__container.innerHTML){
+        let data = await getAllStatus();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div> Estados pedidos</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre_estados: </b>${val.estadosUnicos}</p>
+                        
                 
 
                     </div>
