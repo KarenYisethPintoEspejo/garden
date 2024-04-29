@@ -2,7 +2,7 @@
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
-import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays} from "./module/requests.js"
+import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009} from "./module/requests.js"
 import {getALLCodeRequests2008} from "./module/payments.js"
 
 
@@ -17,7 +17,7 @@ const queryAboutTable3 = document.querySelector("#queryAboutTable3");
 const queryAboutTable4 = document.querySelector("#queryAboutTable4"); 
 const queryAboutTable5 = document.querySelector("#queryAboutTable5"); 
 const queryAboutTable6 = document.querySelector("#queryAboutTable6"); 
-// const queryAboutTable7 = document.querySelector("#queryAboutTable7"); 
+const queryAboutTable7 = document.querySelector("#queryAboutTable7"); 
 const queryAboutTable8 = document.querySelector("#queryAboutTable8"); 
 const queryAboutTable9 = document.querySelector("#queryAboutTable9"); 
 const queryAboutTable10 = document.querySelector("#queryAboutTable10"); 
@@ -310,7 +310,7 @@ queryAboutTable10.addEventListener("click", async(e)=>{
             plantilla += `
                 <div class="report__card">
                 <div class="card__title">
-                    <div>Pedidos no entregados a tiempo</div>
+                    <div>Pedidos entregados al menos dos dias antes</div>
                 </div>
             
                 <div class="card__body">
@@ -319,6 +319,41 @@ queryAboutTable10.addEventListener("click", async(e)=>{
                         <p><b>Codigo_cliente: </b>${val.codigoCliente}</p>
                         <p><b>Fecha_esperada: </b>${val.fechaEspera}</p>
                         <p><b>Fecha_entrega: </b>${val.fechaEntrega}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+//11. Devuelve un listado de todos los pedidos que fueron **rechazados** en `2009`.
+
+queryAboutTable11.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable11.children
+    if(!report__container.innerHTML){
+        let data = await getAllRejected2009();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Pedidos rechazados 2009</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_solicitud: </b>${val.code_request}</p>
+                        <p><b>Fecha_solicitud: </b>${val.date_request}</p>
+                        <p><b>Fecha_esperada: </b>${val.date_wait}</p>
+                        <p><b>Fecha_entrega: </b>${val.date_delivery}</p>
+                        <p><b>Estado: </b>${val.status}</p>
+                        <p><b>Codigo_cliente: </b>${val.code_client}</p>
+                        <p><b>id: </b>${val.id}</p>
+
+
                     </div>
                 </div>
             </div>

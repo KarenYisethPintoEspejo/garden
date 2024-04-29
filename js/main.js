@@ -1,7 +1,7 @@
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "./module/offices.js"
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain} from "./module/clients.js"
-import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays} from "./module/requests.js"
+import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009} from "./module/requests.js"
 import {getALLCodeRequests2008, } from "./module/payments.js"
 
 
@@ -25,5 +25,6 @@ import {getALLCodeRequests2008, } from "./module/payments.js"
 // console.log(await getALLCodeRequests2008()); //8 
 // console.log(await getAllCodeRequestLate()); //9
 // console.log(await getAllCodeTwoDays());  //10
+// console.log(await getAllRejected2009()); //11
 
 
