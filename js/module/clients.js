@@ -109,7 +109,8 @@ export const getClientAndSaleAgentFullName3 = async() => {
                 if (cliente.code_employee_sales_manager === agent.codigoEmpleado) {
                     dataUpdated.push({
                         nombreCliente: cliente.client_name,
-                        nombreRepresentante: agent.nombre
+                        nombreRepresentante: agent.nombre,
+                        codigoOficina: agent.codigoOficina
                     });
                 }
             });
@@ -141,5 +142,27 @@ export const getClientAndSaleAgentFullName4 = async () => {
 
         return dataUpdate;
     } 
+
+// 2. 5. Devuelve el nombre de los clientes que **no** hayan hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante.
+
+export const getClientAndSaleAgentFullName5 = async () => {
+    let clientManager = await getClientAndSaleAgentFullName3();
+    let offices = await getAllOfficesCodeAndCity();
+    let dataUpdate = [];
+
+    clientManager.forEach(val => {
+        offices.forEach(ofi => {
+            if (val.codigoOficina == ofi.codigo) {
+                dataUpdate.push({
+                    nombreCliente: val.nombreCliente,
+                    nombreRepresentate: val.nombreRepresentante,
+                    ciudadOficinaRepresentante: ofi.codigo
+                });
+            }
+        });
+    });
+
+    return dataUpdate;
+}
 
 
