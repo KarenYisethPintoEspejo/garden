@@ -39,7 +39,5 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log(await getClientAndSaleAgentFullName2()); //2.2
 // console.log(await getClientAndSaleAgentFullName3()); //2.3
 // console.log(await getClientAndSaleAgentFullName4()); //2.4
-console.log(await getClientAndSaleAgentFullName5()); //2.5
-
 
 

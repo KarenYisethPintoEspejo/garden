@@ -134,7 +134,7 @@ export const getClientAndSaleAgentFullName4 = async () => {
                     dataUpdate.push({
                         nombreCliente: val.nombreCliente,
                         nombreRepresentate: val.nombreRepresentante,
-                        ciudadOficinaRepresentante: ofi.codigo
+                        ciudadOficinaRepresentante: ofi.ciudad
                     });
                 }
             });
@@ -156,7 +156,7 @@ export const getClientAndSaleAgentFullName5 = async () => {
                 dataUpdate.push({
                     nombreCliente: val.nombreCliente,
                     nombreRepresentate: val.nombreRepresentante,
-                    ciudadOficinaRepresentante: ofi.codigo
+                    ciudadOficinaRepresentante: ofi.ciudad
                 });
             }
         });
