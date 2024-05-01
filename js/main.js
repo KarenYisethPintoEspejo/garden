@@ -1,4 +1,4 @@
-import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "./module/offices.js"
+import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada} from "./module/offices.js"
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5} from "./module/clients.js"
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
@@ -39,5 +39,7 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log(await getClientAndSaleAgentFullName2()); //2.2
 // console.log(await getClientAndSaleAgentFullName3()); //2.3
 // console.log(await getClientAndSaleAgentFullName4()); //2.4
+// console.log(await getClientAndSaleAgentFullName5()); //2.5
+console.log(await getOfficesWithClientsFromFuenlabrada()); //2.6
 
 

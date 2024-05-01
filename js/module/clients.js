@@ -1,17 +1,20 @@
 // 6. Devuelve un listado con el nombre de lclientsos todos los clientes españoles.
 
-export const getAllClientsFromSpain = async() =>{
-    let res = await fetch ("http://localhost:5501/clients?country=Spain")
+export const getAllClientsFromSpain = async()=>{
+    let res = await fetch("http://localhost:5501/clients?country=Spain")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
         dataUpdate.push({
-            nombre: val.contact_name,
-            nacionalidad :val.country
+            nombre: val.client_name,
+            nacionalidad: val.country,
+            codigo:val.code_employee_sales_manager,
+            ciudad: val.city
         })
-    })
-    return dataUpdate
+    });
+    return dataUpdate;
 }
+
 
 
 //16. Devuelve un listado con todos los clientes que sean de la ciudad de Madridy cuyo representante de ventas tenga el código de empleado 11o 30.
