@@ -56,30 +56,31 @@ export const getClientAndSaleAgentFullName = async() => {
     return dataUpdated
 }
 
-// // 2.   2. Muestra el nombre de los clientes que hayan realizado pagos con el nombre de su representante de ventas.
-// import
-// export const getClientAndSaleAgentFullName2 = async() => {
-//     let res = await fetch("http://localhost:5501/clients")
-//     let dataClients = await res.json()
-//     let dataSaleAgents = await getEmployeesSaleAgent2()
-//     let dataPayments = await getAllPaymentClients2()
-//     let dataUpdated = []
+// 2.   2. Muestra el nombre de los clientes que hayan realizado pagos con el nombre de su representante de ventas.
+import { getEmployeesSaleAgent2 } from "./employees.js";
+import { getAllPaymentClients2 } from "./payments.js";
+export const getClientAndSaleAgentFullName2 = async() => {
+    let res = await fetch("http://localhost:5501/clients")
+    let dataClients = await res.json()
+    let dataSaleAgents = await getEmployeesSaleAgent2()
+    let dataPayments = await getAllPaymentClients2()
+    let dataUpdated = []
 
-//     dataClients.forEach(cliente => {
-//         dataSaleAgents.forEach(agent => {
-//             dataPayments.forEach(val =>{
-//                 if (cliente.client_code == val.code_client) {
-//                     if (cliente.code_employee_sales_manager = agent.emplyee_code){
-//                         dataUpdated.push({
-//                             nombreCliente: cliente.client_name,
-//                             nombreRepresentante: agent.name
-//                         })
-//                     }
-//                 }
+    dataClients.forEach(cliente => {
+        dataSaleAgents.forEach(agent => {
+            dataPayments.forEach(val =>{
+                if (cliente.client_code == val.codigoClient) {
+                    if (cliente.code_employee_sales_manager == agent.codigoEmpleado){
+                        dataUpdated.push({
+                            nombreCliente: cliente.client_name,
+                            nombreRepresentante: agent.nombre
+                        })
+                    }
+                }
 
-//             })
+            })
             
-//         })
-//     })
-//     return dataUpdated
-// }
+        })
+    })
+    return dataUpdated
+}

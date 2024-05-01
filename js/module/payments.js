@@ -48,7 +48,7 @@ export const getAllPaymentMethods = async() => {
 // 2. 2.Muestra de clientes que han realizados pagos
 
 export const getAllPaymentClients2 = async() => {
-    let res = await fetch("")
+    let res = await fetch("http://localhost:5505/payments")
     let data = await res.json();
     let dataUpdate= [];
     data.forEach(val=>{

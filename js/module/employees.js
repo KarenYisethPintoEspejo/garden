@@ -63,17 +63,17 @@ export const getEmployeesSaleAgent = async () => {
 
 
 // 2.  2. Obtener empleados que son Representantes de ventas
-// export const getEmployeesSaleAgent2 = async () => {
-//     let res = await fetch("http://localhost:5502/employees?position=Representante%20Ventas")
-//     let data = await res.json()
-//     let dataUpdate = []
-//     data.forEach(val => {
-//         dataUpdate.push({
-//             codigoEmpleado: val.employee_code,
-//             nombre: val.name
-//         })
-//     })
-//     return dataUpdate
-// }
+export const getEmployeesSaleAgent2 = async () => {
+    let res = await fetch("http://localhost:5502/employees?position=Representante%20Ventas")
+    let data = await res.json()
+    let dataUpdate = []
+    data.forEach(val => {
+        dataUpdate.push({
+            codigoEmpleado: val.employee_code,
+            nombre: val.name
+        })
+    })
+    return dataUpdate
+}
 
 

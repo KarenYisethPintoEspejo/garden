@@ -1,6 +1,6 @@
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "./module/offices.js"
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
-import {getAllClientsFromSpain, getAllClientsMadrid1130} from "./module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2} from "./module/clients.js"
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
@@ -32,6 +32,9 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log(await getAllPaymentMethods()); //14
 // console.log(await getAllGamaOrnamentales()); //15
 // console.log(await getAllClientsMadrid1130()); //16
+// console.log(await getClientAndSaleAgentFullName()); //2.1
+
+console.log(await getClientAndSaleAgentFullName2()); //2.2
 
 
 
