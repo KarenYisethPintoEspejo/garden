@@ -84,3 +84,37 @@ export const getClientAndSaleAgentFullName2 = async() => {
     })
     return dataUpdated
 }
+
+// 2. 3. Muestra el nombre de los clientes que **no** hayan realizado pagos junto con el nombre de sus representantes de ventas.
+
+export const getClientAndSaleAgentFullName3 = async() => {
+    let res = await fetch("http://localhost:5501/clients");
+    let dataClients = await res.json();
+    let dataSaleAgents = await getEmployeesSaleAgent2();
+    let dataPayments = await getAllPaymentClients2();
+    let dataUpdated = [];
+
+    dataClients.forEach(cliente => {
+        let hasPaid = false;
+
+        dataPayments.forEach(payment => {
+            if (cliente.client_code === payment.codigoClient) {
+                hasPaid = true;
+            }
+        });
+
+        if (!hasPaid) {
+            dataSaleAgents.forEach(agent => {
+                if (cliente.code_employee_sales_manager === agent.codigoEmpleado) {
+                    dataUpdated.push({
+                        nombreCliente: cliente.client_name,
+                        nombreRepresentante: agent.nombre
+                    });
+                }
+            });
+        }
+    });
+
+    return dataUpdated;
+};
+
