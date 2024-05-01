@@ -70,7 +70,8 @@ export const getEmployeesSaleAgent2 = async () => {
     data.forEach(val => {
         dataUpdate.push({
             codigoEmpleado: val.employee_code,
-            nombre: val.name
+            nombre: val.name,
+            codigoOficina: val.code_office
         })
     })
     return dataUpdate
