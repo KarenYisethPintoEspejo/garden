@@ -37,7 +37,7 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 //SEGUNDA PARTE - 11 EJERCICIOS
 // console.log(await getClientAndSaleAgentFullName()); //2.1
 // console.log(await getClientAndSaleAgentFullName2()); //2.2
-console.log(await getClientAndSaleAgentFullName3()); //2.3
+// console.log(await getClientAndSaleAgentFullName3()); //2.3
 
 
 
