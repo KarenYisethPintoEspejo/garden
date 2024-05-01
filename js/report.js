@@ -1,6 +1,6 @@
 // import "./components/clock.js";  
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada } from "./module/offices.js";
-import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
+import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss} from "./module/employees.js";
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
@@ -35,6 +35,8 @@ const queryAboutTable20 = document.querySelector("#queryAboutTable20");
 const queryAboutTable21 = document.querySelector("#queryAboutTable21");
 const queryAboutTable22 = document.querySelector("#queryAboutTable22");
 const queryAboutTable23 = document.querySelector("#queryAboutTable23");
+const queryAboutTable24 = document.querySelector("#queryAboutTable24");
+
 
 
 
@@ -750,6 +752,37 @@ queryAboutTable23.addEventListener("click", async(e)=>{
                         <p><b>NombreCliente: </b>${val.nombre_cliente}</p>
                         <p><b>NombreRepresentante: </b>${val.nombre_representante}</p>
                         <p><b>CiudadOficina: </b>${val.ciudad_oficina_representante}</p>
+
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+
+// 2.8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
+
+
+queryAboutTable23.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable23.children
+    if(!report__container.innerHTML){
+        let data = await getAllEmployeesWithBoss();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Ciudad-Telefono Oficinas de España</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreEmpleado: </b>${val.employee_name}</p>
+                        <p><b>NombreJefe: </b>${val.boss_name}</p>
 
 
                     </div>
