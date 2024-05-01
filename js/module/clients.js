@@ -136,7 +136,7 @@ export const getClientAndSaleAgentFullName4 = async () => {
                 if (val.codigoOficina == ofi.codigo) {
                     dataUpdate.push({
                         nombreCliente: val.nombreCliente,
-                        nombreRepresentate: val.nombreRepresentante,
+                        nombreRepresentante: val.nombreRepresentante,
                         ciudadOficinaRepresentante: ofi.ciudad
                     });
                 }
@@ -158,7 +158,7 @@ export const getClientAndSaleAgentFullName5 = async () => {
             if (val.codigoOficina == ofi.codigo) {
                 dataUpdate.push({
                     nombreCliente: val.nombreCliente,
-                    nombreRepresentate: val.nombreRepresentante,
+                    nombreRepresentante: val.nombreRepresentante,
                     ciudadOficinaRepresentante: ofi.ciudad
                 });
             }

@@ -28,7 +28,7 @@ export const getAllOfficesFromSpainCityAndMovil = async() =>{
 }
 
 
-// 6. Lista la dirección de las oficinas que tengan clientes en `Fuenlabrada`.
+// 2. 6. Lista la dirección de las oficinas que tengan clientes en `Fuenlabrada`.
 
 import {getAllClientsFromSpain} from "./clients.js"
 export const getOfficesWithClientsFromFuenlabrada = async() => {

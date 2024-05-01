@@ -1,5 +1,5 @@
 // import "./components/clock.js";  
-import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
+import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
@@ -33,6 +33,8 @@ const queryAboutTable18 = document.querySelector("#queryAboutTable18");
 const queryAboutTable19 = document.querySelector("#queryAboutTable19");
 const queryAboutTable20 = document.querySelector("#queryAboutTable20");
 const queryAboutTable21 = document.querySelector("#queryAboutTable21");
+const queryAboutTable22 = document.querySelector("#queryAboutTable22");
+
 
 
 
@@ -693,5 +695,36 @@ queryAboutTable21.addEventListener("click", async(e)=>{
             `;
         });
         report__container.innerHTML = plantilla;
+    }
+})
+
+//2.6. Lista la dirección de las oficinas que tengan clientes en `Fuenlabrada`. 
+queryAboutTable22.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable22.children
+    if(!report__container.innerHTML){
+        let data = await getOfficesWithClientsFromFuenlabrada();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Oficinas clientes fuenlabrada</div>
+                </div>
+            
+                <div class="card__body">
+                    <div class="body__marck">
+                       
+                        <p><b>Codigo_oficina: </b>${val.code_office}</p>
+                        <p><b>Direccion_1: </b>${val.address}</p>
+                        <p><b>Direccion_2: </b>${val.address2}</p>
+                        
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+
     }
 })
