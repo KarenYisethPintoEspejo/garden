@@ -179,7 +179,7 @@ export const getAllClientsAndRepresentSalesOffices = async() => {
         office.forEach(dat=>{
                 dataUpdate.push({
                     nombre_cliente: val.nombreCliente,
-                    nombre_representate:val.nombreRepresentante,
+                    nombre_representante:val.nombreRepresentante,
                     ciudad_oficina_representante: dat.ciudad
                 })
         })
