@@ -169,3 +169,23 @@ export const getClientAndSaleAgentFullName5 = async () => {
 }
 
 
+// 2.7. Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante.
+
+export const getAllClientsAndRepresentSalesOffices = async() => {
+    let client_manager = await getClientAndSaleAgentFullName();
+    let office = await getAllOfficesCodeAndCity();
+    let dataUpdate=[];
+    client_manager.forEach(val=>{
+        office.forEach(dat=>{
+                dataUpdate.push({
+                    nombre_cliente: val.nombreCliente,
+                    nombre_representate:val.nombreRepresentante,
+                    ciudad_oficina_representante: dat.ciudad
+                })
+        })
+    })
+    
+    return dataUpdate
+
+
+}
