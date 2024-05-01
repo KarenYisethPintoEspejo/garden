@@ -1,7 +1,7 @@
 // import "./components/clock.js";  
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "./module/employees.js";
-import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4} from "./module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
@@ -654,7 +654,38 @@ queryAboutTable20.addEventListener("click", async(e)=>{
                     <div class="body__marck">
                         <p><b>NombreCliente: </b>${val.nombreCliente}</p>
                         <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
-                        <p><b>C: </b>${val.nombreRepresentante}</p>
+                        <p><b>CiudadOficina: </b>${val.ciudadOficinaRepresentante}</p>
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+
+// 2.5 Devuelve el nombre de los clientes que NO han hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante.
+
+queryAboutTable21.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable21.children
+    if(!report__container.innerHTML){
+        let data = await getClientAndSaleAgentFullName5();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Ciudad-Telefono Oficinas de España</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+                        <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
+                        <p><b>CiudadOficina: </b>${val.ciudadOficinaRepresentante}</p>
+
 
                     </div>
                 </div>
