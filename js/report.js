@@ -1,6 +1,6 @@
 // import "./components/clock.js";  
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada } from "./module/offices.js";
-import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss} from "./module/employees.js";
+import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss, getAllEmployeesWithBossAndBoss} from "./module/employees.js";
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
@@ -36,6 +36,8 @@ const queryAboutTable21 = document.querySelector("#queryAboutTable21");
 const queryAboutTable22 = document.querySelector("#queryAboutTable22");
 const queryAboutTable23 = document.querySelector("#queryAboutTable23");
 const queryAboutTable24 = document.querySelector("#queryAboutTable24");
+const queryAboutTable25 = document.querySelector("#queryAboutTable25");
+
 
 
 
@@ -781,8 +783,39 @@ queryAboutTable24.addEventListener("click", async(e)=>{
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
-                        <p><b>NombreEmpleado: </b>${val.NombreEmpleado}</p>
-                        <p><b>NombreJefe: </b>${val.NombreJefe}</p>
+                        <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
+                        <p><b>NombreJefe: </b>${val.nombreJefe}</p>
+
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+// 2.9. Devuelve un listado que muestre el nombre de cada empleados, el nombre de su jefe y el nombre del jefe de sus jefe.
+
+queryAboutTable25.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable25.children
+    if(!report__container.innerHTML){
+        let data = await getAllEmployeesWithBossAndBoss();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Ciudad-Telefono Oficinas de España</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
+                        <p><b>NombreJefe: </b>${val.nombreJefe}</p>
+                        <p><b>NombreJefedelJefe: </b>${val.nombreJefedelJefe}</p>
+
 
 
                     </div>

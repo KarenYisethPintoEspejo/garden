@@ -88,8 +88,8 @@ export const getAllEmployeesWithBoss = async() => {
         for (let boss of dataEmployees) {
             if (employee.code_boss == boss.employee_code) {
                 dataUpdate.push({
-                    NombreEmpleado: `${employee.name} ${employee.lastname1} ${employee.lastname2}`,
-                    NombreJefe: `${boss.name} ${boss.lastname1} ${boss.lastname2}`
+                    nombreEmpleado: `${employee.name} ${employee.lastname1} ${employee.lastname2}`,
+                    nombreJefe: `${boss.name} ${boss.lastname1} ${boss.lastname2}`
                 })
             }
         }
