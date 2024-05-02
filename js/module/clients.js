@@ -225,9 +225,9 @@ export const getAllClientsWithLateRequests = async() => {
     for (let lateRequest of dataLateRequests) {
         for (let client of dataClients) {
             if (client.codigoCliente == lateRequest.codigoCliente) {
-                dataUpdate.push(
-                    client.nombreCliente
-                )
+                dataUpdate.push({
+                    nombreCliente: client.nombreCliente
+                })
             }
         }
     }

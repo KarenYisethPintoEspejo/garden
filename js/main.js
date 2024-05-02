@@ -45,6 +45,6 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log(await getAllEmployeesWithBoss()); //2.8
 // console.log( await getAllEmployeesWithBossAndBoss()); //2.9
 // console.log(await getAllClients());  //2.10
-console.log(await getAllClientsWithLateRequests());
+// console.log(await getAllClientsWithLateRequests()); //2.10
 
 

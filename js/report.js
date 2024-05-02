@@ -1,7 +1,7 @@
 // import "./components/clock.js";  
 import { getAllOfficesCodeAndCity,getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada } from "./module/offices.js";
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss, getAllEmployeesWithBossAndBoss} from "./module/employees.js";
-import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices} from "./module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices, getAllClientsWithLateRequests} from "./module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
@@ -37,6 +37,8 @@ const queryAboutTable22 = document.querySelector("#queryAboutTable22");
 const queryAboutTable23 = document.querySelector("#queryAboutTable23");
 const queryAboutTable24 = document.querySelector("#queryAboutTable24");
 const queryAboutTable25 = document.querySelector("#queryAboutTable25");
+const queryAboutTable26 = document.querySelector("#queryAboutTable26");
+
 
 
 
@@ -815,6 +817,36 @@ queryAboutTable25.addEventListener("click", async(e)=>{
                         <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
                         <p><b>NombreJefe: </b>${val.nombreJefe}</p>
                         <p><b>NombreJefedelJefe: </b>${val.nombreJefedelJefe}</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+
+// 2.10. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
+
+queryAboutTable26.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable26.children
+    if(!report__container.innerHTML){
+        let data = await getAllClientsWithLateRequests();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Ciudad-Telefono Oficinas de España</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreCliente: </b>${val.nombreCliente}</p>
 
 
 
