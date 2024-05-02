@@ -767,8 +767,8 @@ queryAboutTable23.addEventListener("click", async(e)=>{
 // 2.8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
 
 
-queryAboutTable23.addEventListener("click", async(e)=>{
-    let [,report__container] = queryAboutTable23.children
+queryAboutTable24.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable24.children
     if(!report__container.innerHTML){
         let data = await getAllEmployeesWithBoss();
         let plantilla = "";
@@ -781,8 +781,8 @@ queryAboutTable23.addEventListener("click", async(e)=>{
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
-                        <p><b>NombreEmpleado: </b>${val.employee_name}</p>
-                        <p><b>NombreJefe: </b>${val.boss_name}</p>
+                        <p><b>NombreEmpleado: </b>${val.NombreEmpleado}</p>
+                        <p><b>NombreJefe: </b>${val.NombreJefe}</p>
 
 
                     </div>
