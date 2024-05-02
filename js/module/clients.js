@@ -189,3 +189,48 @@ export const getAllClientsAndRepresentSalesOffices = async() => {
 
 
 }
+
+// 2.10. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
+
+export const getAllClients = async ()=>{
+    let res =await fetch("http://localhost:5501/clients")
+    let data=await res.json();
+    let dataUpdate = [];
+    let clientCodes = new Set();
+    data.forEach(val => {   
+        if (!clientCodes.has(val.client_code)) {
+            clientCodes.add(val.client_code);
+            dataUpdate.push({
+                codigoCliente: val.client_code,
+                nombreCliente: val.client_name,
+                nacionalidad: val.country,
+                ciudad: val.city
+            });
+        }
+    });
+    return dataUpdate;
+}
+
+
+
+
+
+import {getAllCodeRequestLate} from "./requests.js"
+export const getAllClientsWithLateRequests = async() => {
+    
+    let dataLateRequests = await getAllCodeRequestLate()
+    let dataClients = await getAllClients()
+    let dataUpdate = []
+
+    for (let lateRequest of dataLateRequests) {
+        for (let client of dataClients) {
+            if (client.codigoCliente == lateRequest.codigoCliente) {
+                dataUpdate.push(
+                    client.nombreCliente
+                )
+            }
+        }
+    }
+
+        return dataUpdate
+}

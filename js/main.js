@@ -1,6 +1,6 @@
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada} from "./module/offices.js"
 import { getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss, getAllEmployeesWithBossAndBoss} from "./module/employees.js";
-import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices, } from "./module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices, getAllClients, getAllClientsWithLateRequests} from "./module/clients.js"
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
@@ -43,6 +43,8 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log(await getOfficesWithClientsFromFuenlabrada()); //2.6
 // console.log(await getAllClientsAndRepresentSalesOffices()); //2.7
 // console.log(await getAllEmployeesWithBoss()); //2.8
-console.log( await getAllEmployeesWithBossAndBoss());
+// console.log( await getAllEmployeesWithBossAndBoss()); //2.9
+// console.log(await getAllClients());  //2.10
+console.log(await getAllClientsWithLateRequests());
 
 
