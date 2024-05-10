@@ -5,7 +5,7 @@ import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFu
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
-
+import {getAllGamasByClient} from "./module/gama.js"
 
 
 
@@ -38,6 +38,8 @@ const queryAboutTable23 = document.querySelector("#queryAboutTable23");
 const queryAboutTable24 = document.querySelector("#queryAboutTable24");
 const queryAboutTable25 = document.querySelector("#queryAboutTable25");
 const queryAboutTable26 = document.querySelector("#queryAboutTable26");
+const queryAboutTable27 = document.querySelector("#queryAboutTable27");
+
 
 
 
@@ -847,6 +849,39 @@ queryAboutTable26.addEventListener("click", async(e)=>{
                 <div class="card__body">
                     <div class="body__marck">
                         <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+
+
+// 2. 11. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
+
+
+queryAboutTable27.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable27.children
+    if(!report__container.innerHTML){
+        let data = await getAllGamasByClient();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                    <div>Ciudad-Telefono Oficinas de España</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>CodigoCliente: </b>${val.client_code}</p>
+                        <p><b>NombreCliente: </b>${val.client_name}</p>
+                        <p><b>GamasCompradas: </b>${val.boughtGamas}</p>
 
 
 
