@@ -4,6 +4,7 @@ import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFu
 import {getAllStatus,getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "./module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "./module/payments.js"
 import {getAllGamaOrnamentales} from "./module/products.js"
+import {getAllGamasByClient} from "./module/gama.js"
 
 
 
@@ -46,5 +47,6 @@ import {getAllGamaOrnamentales} from "./module/products.js"
 // console.log( await getAllEmployeesWithBossAndBoss()); //2.9
 // console.log(await getAllClients());  //2.10
 // console.log(await getAllClientsWithLateRequests()); //2.10
+console.log(await getAllGamasByClient()); //2.11
 
 

@@ -14,3 +14,21 @@ export const getAllGamaOrnamentales =  async() =>{
     dataUpdate.sort((a, b) => b.price_sale - a.price_sale);
     return dataUpdate
 }
+
+export const getAllProducts = async ()=>{
+    let res=  await fetch("http://localhost:5506/products")
+    let data= await res.json();
+    let dataUpdate=[];
+    data.forEach(val => {
+        dataUpdate.push({
+           codigo_producto: val.code_product,
+           nombre_producto: val.name,
+           precio_venta: val.price_sale,
+           proveedor: val.provider,
+           precio_compra: val.price_provider,
+           stock: val.stock,
+           gama: val.gama,
+        });
+    });
+    return dataUpdate
+}
