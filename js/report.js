@@ -913,17 +913,12 @@ btn.forEach(val =>{
         if(e.target.innerHTML=="offices"){
             report__details.innerHTML = /*html*/`
             <my-details logic="office_1" text="1.Devuelve un listado con el código de oficina y la ciudad donde hay oficinas."></my-details>
-           
+            <my-details logic="office_2" text="2.Devuelve un listado con la ciudad y el telefono de las oficinas de España."></my-details>
+            
 
             `;
         }
-        if(e.target.innerHTML=="employees"){
-            report__details.innerHTML = /*html*/`
-            <my-details logic="office_1" text="1.Devuelve un listado con el código de oficina y la ciudad donde hay oficinas."></my-details>
-           
-
-            `;
-        }
+        
     })
 });
 let [clients] = report__menu
