@@ -932,6 +932,17 @@ btn.forEach(val =>{
             `;
         }
 
+        if(e.target.innerHTML=="clients"){
+            report__details.innerHTML = /*html*/`
+            <my-details logic="clients_6" text="6. Devuelve un listado con el nombre de los todos los clientes españoles.!"></my-details>
+           
+            
+
+                        
+
+            `;
+        }
+
 
         
     })

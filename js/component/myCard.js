@@ -1,6 +1,7 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
+import {getAllClientsFromSpain} from "../module/clients.js"
 
 
 
@@ -138,6 +139,28 @@ async getAllNotRVDesing() {
 
 
 
+// 6. Devuelve un listado con el nombre de los todos los clientes españoles.
+
+
+async getAllClientsFromSpainDesing() {
+    let data = await getAllClientsFromSpain()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Clientes españoles</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre_Clientes: </b>${val.nombre}</p>
+                        <p><b>Nacionalidad: </b>${val.nacionalidad}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -166,6 +189,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSevenDesing()
     if(name=="logic" && now=="employees_4") this.getBossFullNameAndEmailDesing()
     if(name=="logic" && now=="employees_5") this.getAllNotRVDesing()
+    if(name=="logic" && now=="clients_6") this.getAllClientsFromSpainDesing()
+
 
 
 
