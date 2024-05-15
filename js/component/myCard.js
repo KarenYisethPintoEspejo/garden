@@ -1,6 +1,6 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
-import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail} from "../module/employees.js"
+import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 
 
 
@@ -112,6 +112,43 @@ async getBossFullNameAndEmailDesing() {
 }
 
 
+// 5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas.
+
+
+async getAllNotRVDesing() {
+    let data = await getAllNotRV()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Empleados no representantes de venta</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre_empleado: </b>${val.nombre}</p>
+                        <p><b>Apellidos: </b>${val.apellidos}</p>
+                        <p><b>Puesto: </b>${val.puesto}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,6 +165,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="office_2") this.getAllOfficesFromSpainCityAndMovilDesing()
     if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSevenDesing()
     if(name=="logic" && now=="employees_4") this.getBossFullNameAndEmailDesing()
+    if(name=="logic" && now=="employees_5") this.getAllNotRVDesing()
+
 
 
 

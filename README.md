@@ -4,7 +4,7 @@
 2. Devuelve un listado con la ciudad y el teléfono de las oficinas de España.
 3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7.
 4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
-5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas.
+5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no seanC representantes de ventas.
 6. Devuelve un listado con el nombre de los todos los clientes españoles.
 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
 8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008. Tenga en cuenta que deberá eliminar aquellos códigos de cliente que aparezcan repetidos. Resuelva la consulta:
