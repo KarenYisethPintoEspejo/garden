@@ -934,7 +934,18 @@ btn.forEach(val =>{
 
         if(e.target.innerHTML=="clients"){
             report__details.innerHTML = /*html*/`
-            <my-details logic="clients_6" text="6. Devuelve un listado con el nombre de los todos los clientes españoles.!"></my-details>
+            <my-details logic="clients_6" text="6. Devuelve un listado con el nombre de los todos los clientes españoles."></my-details>
+           
+            
+
+                        
+
+            `;
+        }
+
+        if(e.target.innerHTML=="requests"){
+            report__details.innerHTML = /*html*/`
+            <my-details logic="requests_7" text="7. Devuelve un listado con los distintos estados por los que puede pasar un pedido."></my-details>
            
             
 
