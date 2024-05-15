@@ -1,7 +1,7 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
-import {getAllClientsFromSpain} from "../module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 import {getAllGamaOrnamentales} from "../module/products.js"
@@ -412,6 +412,34 @@ async getAllGamaOrnamentalesDesing() {
 
 
 
+// 16. Devuelve un listado con todos los clientes que sean de la ciudad de `Madrid` y cuyo representante de ventas tenga el código de empleado `11` o `30`.
+
+async getAllClientsMadrid1130Desing() {
+    let data = await getAllClientsMadrid1130()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Formas de pago </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_cliente: </b>${val.client_code}</p>
+                        <p><b>Nombre_cliente: </b>${val.client_name}</p>
+                        <p><b>Celular: </b>${val.phone}</p>
+                        <p><b>Direccion: </b>${val.address1}</p>
+                        <p><b>Ciudad: </b>${val.city}</p>
+                        <p><b>Pais: </b>${val.country}</p>
+                        <p><b>Codigo_representante: </b>${val.code_employee_sales_manager}</p>
+                        <p><b>id: </b>${val.id}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
 
 
 
@@ -443,6 +471,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="payments_13") this.getAllPaymentsPayPal2008Desing()
     if(name=="logic" && now=="payments_14") this.getAllPaymentMethodsDesing()
     if(name=="logic" && now=="products_15") this.getAllGamaOrnamentalesDesing()
+    if(name=="logic" && now=="clients_16") this.getAllClientsMadrid1130Desing()
+
 
 
 

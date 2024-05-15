@@ -539,14 +539,14 @@
             
 //                 <div class="card__body">
 //                     <div class="body__marck">
-//                         <p><b>Codigo_cliente: </b>${val.client_code}</p>
-//                         <p><b>Nombre_cliente: </b>${val.client_name}</p>
-//                         <p><b>Celular: </b>${val.phone}</p>
-//                         <p><b>Direccion: </b>${val.address1}</p>
-//                         <p><b>Ciudad: </b>${val.city}</p>
-//                         <p><b>Pais: </b>${val.country}</p>
-//                         <p><b>Codigo_representante: </b>${val.code_employee_sales_manager}</p>
-//                         <p><b>id: </b>${val.id}</p>
+                        // <p><b>Codigo_cliente: </b>${val.client_code}</p>
+                        // <p><b>Nombre_cliente: </b>${val.client_name}</p>
+                        // <p><b>Celular: </b>${val.phone}</p>
+                        // <p><b>Direccion: </b>${val.address1}</p>
+                        // <p><b>Ciudad: </b>${val.city}</p>
+                        // <p><b>Pais: </b>${val.country}</p>
+                        // <p><b>Codigo_representante: </b>${val.code_employee_sales_manager}</p>
+                        // <p><b>id: </b>${val.id}</p>
 //                     </div>
 //                 </div>
 //             </div>
@@ -935,6 +935,8 @@ btn.forEach(val =>{
         if(e.target.innerHTML=="clients"){
             report__details.innerHTML = /*html*/`
             <my-details logic="clients_6" text="6. Devuelve un listado con el nombre de los todos los clientes españoles."></my-details>
+            <my-details logic="clients_16" text="16. Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas tenga el código de empleado 11 o 30."></my-details>
+
            
             
 
