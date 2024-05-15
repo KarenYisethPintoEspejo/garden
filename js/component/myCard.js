@@ -3,7 +3,7 @@ import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../m
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
-import {getALLCodeRequests2008, getAllPaymentsPayPal2008} from "../module/payments.js"
+import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 
 
 
@@ -356,6 +356,27 @@ async getAllPaymentsPayPal2008Desing() {
 }
 
 
+// 14. Devuelve un listado con todas las formas de pago que aparecen en la tabla `pago`. Tenga en cuenta que no deben aparecer formas de pago repetidas.
+
+
+async getAllPaymentMethodsDesing() {
+    let data = await getAllPaymentMethods()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Formas de pago </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Tipo_pago: </b>${val}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -392,6 +413,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="requests_11") this.getAllRejected2009Desing()
     if(name=="logic" && now=="requests_12") this.getAllDeliveredJanuaryDesing()
     if(name=="logic" && now=="payments_13") this.getAllPaymentsPayPal2008Desing()
+    if(name=="logic" && now=="payments_14") this.getAllPaymentMethodsDesing()
+
 
 
 
