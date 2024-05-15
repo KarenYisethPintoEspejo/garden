@@ -2,7 +2,7 @@
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain} from "../module/clients.js"
-import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009} from "../module/requests.js"
+import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008} from "../module/payments.js"
 
 
@@ -299,7 +299,32 @@ async getAllRejected2009Desing() {
 
 
 
+// 12. Devuelve un listado de todos los pedidos que han sido **entregados** en el mes de enero de cualquier año.
 
+async getAllDeliveredJanuaryDesing() {
+    let data = await getAllDeliveredJanuary()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Codigo de clientes pagos rechazados 2009</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_solicitud: </b>${val.code_request}</p>
+                        <p><b>Fecha_solicitud: </b>${val.date_request}</p>
+                        <p><b>Fecha_esperada: </b>${val.date_wait}</p>
+                        <p><b>Fecha_entrega: </b>${val.date_delivery}</p>
+                        <p><b>Estado: </b>${val.status}</p>
+                        <p><b>Codigo_cliente: </b>${val.code_client}</p>
+                        <p><b>id: </b>${val.id}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -323,6 +348,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="requests_9") this.getAllCodeRequestLateDesing()
     if(name=="logic" && now=="requests_10") this.getAllCodeTwoDaysDesing()
     if(name=="logic" && now=="requests_11") this.getAllRejected2009Desing()
+    if(name=="logic" && now=="requests_12") this.getAllDeliveredJanuaryDesing()
+
 
 
 
