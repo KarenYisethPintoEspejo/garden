@@ -955,6 +955,18 @@ btn.forEach(val =>{
         }
 
 
+        if(e.target.innerHTML=="payments"){
+            report__details.innerHTML = /*html*/`
+            <my-details logic="payments_8" text="8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008."></my-details>
+           
+            
+
+                        
+
+            `;
+        }
+
+
         
     })
 });

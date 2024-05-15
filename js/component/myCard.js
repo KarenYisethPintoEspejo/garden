@@ -3,6 +3,7 @@ import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../m
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain} from "../module/clients.js"
 import {getAllStatus} from "../module/requests.js"
+import {getALLCodeRequests2008} from "../module/payments.js"
 
 
 
@@ -188,9 +189,27 @@ async getAllStatusDesing() {
 }
 
 
+// 8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008.
 
 
-
+async getALLCodeRequests2008Desing() {
+    let data = await getALLCodeRequests2008()
+    data.forEach(payment => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Codigo de clientes pagos 2008</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_cliente: </b>${payment}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -213,6 +232,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="employees_5") this.getAllNotRVDesing()
     if(name=="logic" && now=="clients_6") this.getAllClientsFromSpainDesing()
     if(name=="logic" && now=="requests_7") this.getAllStatusDesing()
+    if(name=="logic" && now=="payments_8") this.getALLCodeRequests2008Desing()
+
 
 
 
