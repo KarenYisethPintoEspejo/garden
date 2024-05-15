@@ -2,7 +2,7 @@
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain} from "../module/clients.js"
-import {getAllStatus, getAllCodeRequestLate} from "../module/requests.js"
+import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays} from "../module/requests.js"
 import {getALLCodeRequests2008} from "../module/payments.js"
 
 
@@ -240,6 +240,40 @@ async getAllCodeRequestLateDesing() {
 
 
 
+// 10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
+
+
+
+async getAllCodeTwoDaysDesing() {
+    let data = await getAllCodeTwoDays()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Codigo de clientes pagos 2008</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_pedido: </b>${val.codigoPedido}</p>
+                        <p><b>Codigo_cliente: </b>${val.codigoCliente}</p>
+                        <p><b>Fecha_esperada: </b>${val.fechaEspera}</p>
+                        <p><b>Fecha_entrega: </b>${val.fechaEntrega}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -259,6 +293,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="requests_7") this.getAllStatusDesing()
     if(name=="logic" && now=="payments_8") this.getALLCodeRequests2008Desing()
     if(name=="logic" && now=="requests_9") this.getAllCodeRequestLateDesing()
+    if(name=="logic" && now=="requests_10") this.getAllCodeTwoDaysDesing()
+
 
 
 
