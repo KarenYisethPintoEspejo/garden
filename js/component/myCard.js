@@ -3,7 +3,7 @@ import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../m
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
-import {getALLCodeRequests2008} from "../module/payments.js"
+import {getALLCodeRequests2008, getAllPaymentsPayPal2008} from "../module/payments.js"
 
 
 
@@ -277,7 +277,7 @@ async getAllRejected2009Desing() {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
                 <div class="card__title">
-                    <div>Codigo de clientes pagos rechazados 2009</div>
+                    <div>Pedidos rechazados 2009</div>
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
@@ -307,7 +307,7 @@ async getAllDeliveredJanuaryDesing() {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
                 <div class="card__title">
-                    <div>Codigo de clientes pagos rechazados 2009</div>
+                    <div>Pedidos entregados en el mes de Enero</div>
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
@@ -325,6 +325,48 @@ async getAllDeliveredJanuaryDesing() {
         `
     })
 }
+
+
+
+// 13. Devuelve un listado con todos los pagos que se realizaron en el año `2008` mediante `Paypal`. Ordene el resultado de mayor a menor.
+
+
+async getAllPaymentsPayPal2008Desing() {
+    let data = await getAllPaymentsPayPal2008()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Pedidos realizados 2008/PayPal </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_cliente: </b>${val.code_client}</p>
+                        <p><b>Tipo_pago: </b>${val.payment}</p>
+                        <p><b>id_pago: </b>${val.id_transaction}</p>
+                        <p><b>Fecha_pago: </b>${val.date_payment}</p>
+                        <p><b>total_pago: </b>${val.total}</p>
+                        <p><b>id: </b>${val.id}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -349,6 +391,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="requests_10") this.getAllCodeTwoDaysDesing()
     if(name=="logic" && now=="requests_11") this.getAllRejected2009Desing()
     if(name=="logic" && now=="requests_12") this.getAllDeliveredJanuaryDesing()
+    if(name=="logic" && now=="payments_13") this.getAllPaymentsPayPal2008Desing()
+
 
 
 
