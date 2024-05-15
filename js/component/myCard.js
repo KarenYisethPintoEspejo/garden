@@ -4,6 +4,7 @@ import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotR
 import {getAllClientsFromSpain} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
+import {getAllGamaOrnamentales} from "../module/products.js"
 
 
 
@@ -380,7 +381,34 @@ async getAllPaymentMethodsDesing() {
 
 
 
+// 15. Devuelve un listado con todos los productos que pertenecen a la gama `Ornamentales` y que tienen más de `100` unidades en stock. El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio.
 
+
+async getAllGamaOrnamentalesDesing() {
+    let data = await getAllGamaOrnamentales()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Formas de pago </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_producto: </b>${val.code_product}</p>
+                        <p><b>Nombre: </b>${val.name}</p>
+                        <p><b>Gama: </b>${val.gama}</p>
+                        <p><b>Dimension: </b>${val.dimension}</p>
+                        <p><b>Provedor: </b>${val.provider}</p>
+                        <p><b>Stock: </b>${val.stock}</p>
+                        <p><b>Precio_venta: </b>${val.price_sale}</p>
+                        <p><b>id: </b>${val.id}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -414,6 +442,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="requests_12") this.getAllDeliveredJanuaryDesing()
     if(name=="logic" && now=="payments_13") this.getAllPaymentsPayPal2008Desing()
     if(name=="logic" && now=="payments_14") this.getAllPaymentMethodsDesing()
+    if(name=="logic" && now=="products_15") this.getAllGamaOrnamentalesDesing()
+
 
 
 
