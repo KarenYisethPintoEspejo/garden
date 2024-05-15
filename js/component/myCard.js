@@ -1,5 +1,6 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
+import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail} from "../module/employees.js"
 
 
 
@@ -63,11 +64,52 @@ async getAllOfficesFromSpainCityAndMovilDesing() {
 // 3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7.
 
 
+async getAllEmployeesWithBossAndCodeSevenDesing() {
+    let data = await getAllEmployeesWithBossAndCodeSeven()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Nombre-Apellidos-Email Empleados con codigo de jefe 7</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Nombre: </b>${val.nombre}</p>
+                        <p><b>Apellidos: </b>${val.apellidos}</p>
+                        <p><b>Email: </b>${val.email}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
+// 4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
 
 
 
-
-
+async getBossFullNameAndEmailDesing() {
+    let data = await getBossFullNameAndEmail()
+    // data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Jefe de la empresa</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                    <p><b>Puesto: </b>${data.puesto}</p>
+                        <p><b>Nombre: </b>${data.nombre}</p>
+                        <p><b>Apellidos: </b>${data.apellidos}</p>
+                        <p><b>Email: </b>${data.email}</p>
+            
+                    </div>
+                </div>
+            </div>
+        `
+    // })
+}
 
 
 
@@ -84,6 +126,10 @@ static get observedAttributes() {
 attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="office_1") this.getAllOfficesCodeAndCityDesing()
     if(name=="logic" && now=="office_2") this.getAllOfficesFromSpainCityAndMovilDesing()
+    if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSevenDesing()
+    if(name=="logic" && now=="employees_4") this.getBossFullNameAndEmailDesing()
+
+
 
     // if(name=="logic" && now=="office_1") this.getAllOfficesCodeAndCityDesing()
 
@@ -104,7 +150,7 @@ attributeChangedCallback(name, old, now) {
 
     // if(name=="logic" && now=="office_1") this.getAllOfficesCodeAndCityDesing()
 
-    V
+    
 
 
     

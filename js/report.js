@@ -918,6 +918,19 @@ btn.forEach(val =>{
 
             `;
         }
+
+        if(e.target.innerHTML=="employees"){
+            report__details.innerHTML = /*html*/`
+            <my-details logic="employees_3" text="3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7."></my-details>
+            <my-details logic="employees_4" text="4.Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa."></my-details>
+            
+
+                        
+
+            `;
+        }
+
+
         
     })
 });
