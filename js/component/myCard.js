@@ -1,7 +1,7 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
-import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName} from "../module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 import {getAllGamaOrnamentales} from "../module/products.js"
@@ -469,6 +469,28 @@ async getClientAndSaleAgentFullNameDesing() {
 
 
 
+// 2. 2. Muestra el nombre de los clientes que hayan realizado pagos junto con el nombre de sus representantes de ventas.
+
+async getClientAndSaleAgentFullName2Desing() {
+    let data = await getClientAndSaleAgentFullName2()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Clientes que hayan realizado pagos con sus representantes de ventas </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+                        <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
 
 
 
@@ -498,6 +520,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="products_15") this.getAllGamaOrnamentalesDesing()
     if(name=="logic" && now=="clients_16") this.getAllClientsMadrid1130Desing()
     if(name=="logic" && now=="clients_17") this.getClientAndSaleAgentFullNameDesing()
+    if(name=="logic" && now=="clients_18") this.getClientAndSaleAgentFullName2Desing()
+
 
 
 
