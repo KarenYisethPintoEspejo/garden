@@ -1,7 +1,7 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
-import {getAllClientsFromSpain, getAllClientsMadrid1130} from "../module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 import {getAllGamaOrnamentales} from "../module/products.js"
@@ -390,7 +390,7 @@ async getAllGamaOrnamentalesDesing() {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
                 <div class="card__title">
-                    <div>Formas de pago </div>
+                    <div>Productos Ornamentales/Mas de 100U stock </div>
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
@@ -420,7 +420,7 @@ async getAllClientsMadrid1130Desing() {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
                 <div class="card__title">
-                    <div>Formas de pago </div>
+                    <div>Clientes de Madrid y RV = 11 0 30 </div>
                 </div>
                 <div class="card__body">
                     <div class="body__marck">
@@ -441,6 +441,31 @@ async getAllClientsMadrid1130Desing() {
 }
 
 
+
+
+// 2. 1. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
+
+async getClientAndSaleAgentFullNameDesing() {
+    let data = await getClientAndSaleAgentFullName()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Clientes con sus representantes de ventas </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>CodigoCliente: </b>${val.codigoCliente}</p>
+                        <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+                        <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
+                        <p><b>ApellidosRepresentante: </b>${val.apellidosRepresentante}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -472,6 +497,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="payments_14") this.getAllPaymentMethodsDesing()
     if(name=="logic" && now=="products_15") this.getAllGamaOrnamentalesDesing()
     if(name=="logic" && now=="clients_16") this.getAllClientsMadrid1130Desing()
+    if(name=="logic" && now=="clients_17") this.getClientAndSaleAgentFullNameDesing()
+
 
 
 

@@ -573,10 +573,10 @@
 //                 </div>
 //                 <div class="card__body">
 //                     <div class="body__marck">
-//                         <p><b>CodigoCliente: </b>${val.codigoCliente}</p>
-//                         <p><b>NombreCliente: </b>${val.nombreCliente}</p>
-//                         <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
-//                         <p><b>ApellidosRepresentante: </b>${val.apellidosRepresentante}</p>
+                        // <p><b>CodigoCliente: </b>${val.codigoCliente}</p>
+                        // <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+                        // <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
+                        // <p><b>ApellidosRepresentante: </b>${val.apellidosRepresentante}</p>
 
 //                     </div>
 //                 </div>
@@ -936,6 +936,7 @@ btn.forEach(val =>{
             report__details.innerHTML = /*html*/`
             <my-details logic="clients_6" text="6. Devuelve un listado con el nombre de los todos los clientes españoles."></my-details>
             <my-details logic="clients_16" text="16. Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas tenga el código de empleado 11 o 30."></my-details>
+            <my-details logic="clients_17" text="17. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas."></my-details>
 
            
             
