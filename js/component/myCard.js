@@ -1,6 +1,6 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada} from "../module/offices.js"
-import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
+import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV, getAllEmployeesWithBoss} from "../module/employees.js"
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5, getAllClientsAndRepresentSalesOffices} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
@@ -616,8 +616,27 @@ async getAllClientsAndRepresentSalesOfficesDesing() {
 }
 
 
+// 2. 8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
 
-
+async getAllEmployeesWithBossDesing() {
+    let data = await getAllEmployeesWithBoss()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Empleados con sus jefes  </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
+                        <p><b>NombreJefe: </b>${val.nombreJefe}</p>
+                    
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 static get observedAttributes() {
@@ -647,6 +666,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="clients_21") this.getClientAndSaleAgentFullName5Desing()
     if(name=="logic" && now=="office_22") this.getOfficesWithClientsFromFuenlabradaDesing()
     if(name=="logic" && now=="clients_23") this.getAllClientsAndRepresentSalesOfficesDesing()
+    if(name=="logic" && now=="employees_24") this.getAllEmployeesWithBossDesing()
+
 
 
 
