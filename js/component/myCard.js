@@ -5,6 +5,7 @@ import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFu
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 import {getAllGamaOrnamentales} from "../module/products.js"
+import {getAllGamasByClient} from "../module/gama.js"
 
 
 
@@ -699,6 +700,32 @@ async getAllClientsWithLateRequestsDesing() {
 
 
 
+// 2. 11. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
+
+
+async getAllGamasByClientDesing() {
+    let data = await getAllGamasByClient()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Gamas de producto compradas  </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>CodigoCliente: </b>${val.client_code}</p>
+                        <p><b>NombreCliente: </b>${val.client_name}</p>
+                        <p><b>GamasCompradas: </b>${val.boughtGamas}</p>
+
+
+
+                    
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -733,6 +760,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="employees_24") this.getAllEmployeesWithBossDesing()
     if(name=="logic" && now=="employees_25") this.getAllEmployeesWithBossAndBossDesing()
     if(name=="logic" && now=="clients_26") this.getAllClientsWithLateRequestsDesing()
+    if(name=="logic" && now=="gama_27") this.getAllGamasByClientDesing()
+
 
 
 

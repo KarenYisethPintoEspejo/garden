@@ -879,9 +879,9 @@
 //                 </div>
 //                 <div class="card__body">
 //                     <div class="body__marck">
-//                         <p><b>CodigoCliente: </b>${val.client_code}</p>
-//                         <p><b>NombreCliente: </b>${val.client_name}</p>
-//                         <p><b>GamasCompradas: </b>${val.boughtGamas}</p>
+                        // <p><b>CodigoCliente: </b>${val.client_code}</p>
+                        // <p><b>NombreCliente: </b>${val.client_name}</p>
+                        // <p><b>GamasCompradas: </b>${val.boughtGamas}</p>
 
 
 
@@ -991,6 +991,18 @@ btn.forEach(val =>{
         if(e.target.innerHTML=="product"){
             report__details.innerHTML = /*html*/`
             <my-details logic="products_15" text="15. Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio."></my-details>
+        
+           
+            
+
+                        
+
+            `;
+        }
+
+        if(e.target.innerHTML=="gama"){
+            report__details.innerHTML = /*html*/`
+            <my-details logic="gama_27" text="27. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente."></my-details>
         
            
             
