@@ -816,9 +816,9 @@
 //                 </div>
 //                 <div class="card__body">
 //                     <div class="body__marck">
-//                         <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
-//                         <p><b>NombreJefe: </b>${val.nombreJefe}</p>
-//                         <p><b>NombreJefedelJefe: </b>${val.nombreJefedelJefe}</p>
+                        // <p><b>NombreEmpleado: </b>${val.nombreEmpleado}</p>
+                        // <p><b>NombreJefe: </b>${val.nombreJefe}</p>
+                        // <p><b>NombreJefedelJefe: </b>${val.nombreJefedelJefe}</p>
 
 
 
@@ -926,6 +926,7 @@ btn.forEach(val =>{
             <my-details logic="employees_4" text="4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa."></my-details>
             <my-details logic="employees_5" text="5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas."></my-details>
             <my-details logic="employees_24" text="24. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes."></my-details>
+            <my-details logic="employees_25" text="25. Devuelve un listado que muestre el nombre de cada empleados, el nombre de su jefe y el nombre del jefe de sus jefe."></my-details>
 
             
 
