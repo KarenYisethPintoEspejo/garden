@@ -1,5 +1,5 @@
 
-import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
+import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil, getOfficesWithClientsFromFuenlabrada} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
 import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4, getClientAndSaleAgentFullName5} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
@@ -567,8 +567,28 @@ async getClientAndSaleAgentFullName5Desing() {
 }
 
 
+// 2. 6. Lista la dirección de las oficinas que tengan clientes en `Fuenlabrada`.
 
-
+async getOfficesWithClientsFromFuenlabradaDesing() {
+    let data = await getOfficesWithClientsFromFuenlabrada()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Direccion de oficinas con clientes en Fuenlabrada</div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>Codigo_oficina: </b>${val.code_office}</p>
+                        <p><b>Direccion_1: </b>${val.address}</p>
+                        <p><b>Direccion_2: </b>${val.address2}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 static get observedAttributes() {
@@ -596,6 +616,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="clients_19") this.getClientAndSaleAgentFullName3Desing()
     if(name=="logic" && now=="clients_20") this.getClientAndSaleAgentFullName4Desing()
     if(name=="logic" && now=="clients_21") this.getClientAndSaleAgentFullName5Desing()
+    if(name=="logic" && now=="office_22") this.getOfficesWithClientsFromFuenlabradaDesing()
+
 
     
 

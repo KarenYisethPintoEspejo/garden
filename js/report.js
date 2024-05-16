@@ -725,9 +725,9 @@
 //                 <div class="card__body">
 //                     <div class="body__marck">
                        
-//                         <p><b>Codigo_oficina: </b>${val.code_office}</p>
-//                         <p><b>Direccion_1: </b>${val.address}</p>
-//                         <p><b>Direccion_2: </b>${val.address2}</p>
+                        // <p><b>Codigo_oficina: </b>${val.code_office}</p>
+                        // <p><b>Direccion_1: </b>${val.address}</p>
+                        // <p><b>Direccion_2: </b>${val.address2}</p>
                         
 //                     </div>
 //                 </div>
@@ -912,8 +912,9 @@ btn.forEach(val =>{
 
         if(e.target.innerHTML=="offices"){
             report__details.innerHTML = /*html*/`
-            <my-details logic="office_1" text="1.Devuelve un listado con el código de oficina y la ciudad donde hay oficinas."></my-details>
-            <my-details logic="office_2" text="2.Devuelve un listado con la ciudad y el telefono de las oficinas de España."></my-details>
+            <my-details logic="office_1" text="1. Devuelve un listado con el código de oficina y la ciudad donde hay oficinas."></my-details>
+            <my-details logic="office_2" text="2. Devuelve un listado con la ciudad y el telefono de las oficinas de España."></my-details>
+            <my-details logic="office_22" text="22. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada."></my-details>
             
 
             `;
@@ -922,7 +923,7 @@ btn.forEach(val =>{
         if(e.target.innerHTML=="employees"){
             report__details.innerHTML = /*html*/`
             <my-details logic="employees_3" text="3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7."></my-details>
-            <my-details logic="employees_4" text="4.Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa."></my-details>
+            <my-details logic="employees_4" text="4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa."></my-details>
             <my-details logic="employees_5" text="5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas."></my-details>
 
             
