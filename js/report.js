@@ -755,9 +755,9 @@
 //                 </div>
 //                 <div class="card__body">
 //                     <div class="body__marck">
-//                         <p><b>NombreCliente: </b>${val.nombre_cliente}</p>
-//                         <p><b>NombreRepresentante: </b>${val.nombre_representante}</p>
-//                         <p><b>CiudadOficina: </b>${val.ciudad_oficina_representante}</p>
+                        // <p><b>NombreCliente: </b>${val.nombre_cliente}</p>
+                        // <p><b>NombreRepresentante: </b>${val.nombre_representante}</p>
+                        // <p><b>CiudadOficina: </b>${val.ciudad_oficina_representante}</p>
 
 
 //                     </div>
@@ -942,6 +942,8 @@ btn.forEach(val =>{
             <my-details logic="clients_19" text="19. Muestra el nombre de los clientes que **no** hayan realizado pagos junto con el nombre de sus representantes de ventas."></my-details>
             <my-details logic="clients_20" text="20. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante."></my-details>
             <my-details logic="clients_21" text="21. Devuelve el nombre de los clientes que **no** hayan hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante."></my-details>
+            <my-details logic="clients_23" text="23. Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante."></my-details>
+
 
 
 
