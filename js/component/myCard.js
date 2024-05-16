@@ -1,7 +1,7 @@
 
 import {getAllOfficesCodeAndCity, getAllOfficesFromSpainCityAndMovil} from "../module/offices.js"
 import {getAllEmployeesWithBossAndCodeSeven, getBossFullNameAndEmail, getAllNotRV} from "../module/employees.js"
-import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3} from "../module/clients.js"
+import {getAllClientsFromSpain, getAllClientsMadrid1130, getClientAndSaleAgentFullName, getClientAndSaleAgentFullName2, getClientAndSaleAgentFullName3, getClientAndSaleAgentFullName4} from "../module/clients.js"
 import {getAllStatus, getAllCodeRequestLate, getAllCodeTwoDays, getAllRejected2009, getAllDeliveredJanuary} from "../module/requests.js"
 import {getALLCodeRequests2008, getAllPaymentsPayPal2008, getAllPaymentMethods} from "../module/payments.js"
 import {getAllGamaOrnamentales} from "../module/products.js"
@@ -520,7 +520,26 @@ async getClientAndSaleAgentFullName3Desing() {
 
 // 2. 4. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante.
 
-
+async getClientAndSaleAgentFullName4Desing() {
+    let data = await getClientAndSaleAgentFullName4()
+    data.forEach(val => {
+        this.shadowRoot.innerHTML += /*html*/ `
+            <div class="report__card">
+                <div class="card__title">
+                    <div>Clientes con sus representantes de ventas y la ciudad de la oficina </div>
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                        <p><b>NombreCliente: </b>${val.nombreCliente}</p>
+                        <p><b>NombreRepresentante: </b>${val.nombreRepresentante}</p>
+                        <p><b>CiudadOficina: </b>${val.ciudadOficinaRepresentante}</p>
+                
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
 
 
 
@@ -551,6 +570,8 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="clients_17") this.getClientAndSaleAgentFullNameDesing()
     if(name=="logic" && now=="clients_18") this.getClientAndSaleAgentFullName2Desing()
     if(name=="logic" && now=="clients_19") this.getClientAndSaleAgentFullName3Desing()
+    if(name=="logic" && now=="clients_20") this.getClientAndSaleAgentFullName4Desing()
+    
 
 
 
