@@ -10,7 +10,7 @@ export class Mydetails extends HTMLElement{
             <link rel="stylesheet" href="../css/myDetails.css">
             <details>
                 <summary>
-                    <div class="details__description">consulta: </div>
+                    <div class="details__description">Consulta: </div>
                     <div class="details__container">
                         <p><marquee behavior="" direction="">...</marquee></p>
                     </div>
