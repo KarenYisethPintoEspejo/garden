@@ -1,7 +1,7 @@
 // 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
 
 export const getAllStatus = async () => {
-    let res = await fetch("http://localhost:5508/requests");
+    let res = await fetch("http://localhost:5418/requests");
     let data = await res.json();
     let estadosSet = new Set(data.map(val => val.status));
     let estadosUnicos = Array.from(estadosSet);
@@ -15,7 +15,7 @@ export const getAllStatus = async () => {
 // 9. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
 
 export const getAllCodeRequestLate = async () => {
-    let res = await fetch("http://localhost:5508/requests?date_wait_neq_date_delivery");
+    let res = await fetch("http://localhost:5418/requests?date_wait_neq_date_delivery");
     let data = await res.json();
     let dataUpdate = data.map(val => ({
         codigoPedido: val.code_request,
@@ -32,7 +32,7 @@ export const getAllCodeRequestLate = async () => {
 import { parseISO, differenceInDays } from '../../node_modules/date-fns/index.mjs';
 
 export const getAllCodeTwoDays = async() => {
-    let res = await fetch("http://localhost:5508/requests");
+    let res = await fetch("http://localhost:5418/requests");
     let data = await res.json();
     let dataUpdate = [];
     
@@ -59,7 +59,7 @@ export const getAllCodeTwoDays = async() => {
 // 11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009.
 
 export const getAllRejected2009 = async() => {
-    let res = await fetch("http://localhost:5508/requests?status=Rechazado")
+    let res = await fetch("http://localhost:5418/requests?status=Rechazado")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val=>{
@@ -75,7 +75,7 @@ export const getAllRejected2009 = async() => {
 // 12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
 
 export const getAllDeliveredJanuary = async() => {
-    let res = await fetch("http://localhost:5508/requests?status=Entregado");
+    let res = await fetch("http://localhost:5418/requests?status=Entregado");
     let data = await res.json(); 
     let dataUpdate = [];
 
@@ -91,7 +91,7 @@ export const getAllDeliveredJanuary = async() => {
 }
 
 export const getAllRequests =async ()=>{
-    let res= await fetch("http://localhost:5508/requests")
+    let res= await fetch("http://localhost:5418/requests")
     let data= await res.json();
    let dataUpdate = []
    data.forEach(val=>{

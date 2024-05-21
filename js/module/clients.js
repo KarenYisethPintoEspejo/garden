@@ -1,7 +1,7 @@
 // 6. Devuelve un listado con el nombre de lclientsos todos los clientes españoles.
 
 export const getAllClientsFromSpain = async()=>{
-    let res = await fetch("http://localhost:5501/clients?country=Spain")
+    let res = await fetch("http://localhost:5411/clients?country=Spain")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -20,7 +20,7 @@ export const getAllClientsFromSpain = async()=>{
 //16. Devuelve un listado con todos los clientes que sean de la ciudad de Madridy cuyo representante de ventas tenga el código de empleado 11o 30.
 
 export const getAllClientsMadrid1130 = async() => {
-    let res = await fetch("http://localhost:5501/clients?city=Madrid")
+    let res = await fetch("http://localhost:5411/clients?city=Madrid")
     let data = await res.json();
     let dataUpdate= [];
     data.forEach(val =>{
@@ -39,7 +39,7 @@ export const getAllClientsMadrid1130 = async() => {
 // 1. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
 import {getEmployeesSaleAgent} from "./employees.js"
 export const getClientAndSaleAgentFullName = async() => {
-    let res = await fetch("http://localhost:5501/clients")
+    let res = await fetch("http://localhost:5411/clients")
     let dataClients = await res.json()
     let dataSaleAgents = await getEmployeesSaleAgent()
     let dataUpdated = []
@@ -63,7 +63,7 @@ export const getClientAndSaleAgentFullName = async() => {
 import { getEmployeesSaleAgent2 } from "./employees.js";
 import { getAllPaymentClients2 } from "./payments.js";
 export const getClientAndSaleAgentFullName2 = async() => {
-    let res = await fetch("http://localhost:5501/clients")
+    let res = await fetch("http://localhost:5411/clients")
     let dataClients = await res.json()
     let dataSaleAgents = await getEmployeesSaleAgent2()
     let dataPayments = await getAllPaymentClients2()
@@ -92,7 +92,7 @@ export const getClientAndSaleAgentFullName2 = async() => {
 // 2. 3. Muestra el nombre de los clientes que **no** hayan realizado pagos junto con el nombre de sus representantes de ventas.
 
 export const getClientAndSaleAgentFullName3 = async() => {
-    let res = await fetch("http://localhost:5501/clients");
+    let res = await fetch("http://localhost:5411/clients");
     let dataClients = await res.json();
     let dataSaleAgents = await getEmployeesSaleAgent2();
     let dataPayments = await getAllPaymentClients2();
@@ -193,7 +193,7 @@ export const getAllClientsAndRepresentSalesOffices = async() => {
 // 2.10. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
 
 export const getAllClients = async ()=>{
-    let res =await fetch("http://localhost:5501/clients")
+    let res =await fetch("http://localhost:5411/clients")
     let data=await res.json();
     let dataUpdate = [];
     let clientCodes = new Set();

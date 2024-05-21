@@ -4,7 +4,7 @@ import { getAllRequests } from "./requests.js";
 import { getAllClients } from "./clients.js";
 
 export const getAllGamasByClient = async () => {
-    let res = await fetch("http://localhost:5503/gama");
+    let res = await fetch("http://localhost:5413/gama");
     let dataProductos = await getAllProducts();
     let dataRequestDetails = await res.json();
     let dataRequests = await getAllRequests();

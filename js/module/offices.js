@@ -1,6 +1,6 @@
 // 1. Devuelve un listado con el código de oficina y la ciudad donde hay oficinas.
 export const getAllOfficesCodeAndCity = async ()=>{
-    let res = await fetch("http://localhost:5504/offices")
+    let res = await fetch("http://localhost:5414/offices")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -15,7 +15,7 @@ export const getAllOfficesCodeAndCity = async ()=>{
 }
 // 2. Devuelve un listado con la ciudad y el teléfono de las oficinas de España.
 export const getAllOfficesFromSpainCityAndMovil = async() =>{
-    let res = await fetch("http://localhost:5504/offices?country=España")
+    let res = await fetch("http://localhost:5414/offices?country=España")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -35,7 +35,7 @@ export const getOfficesWithClientsFromFuenlabrada = async() => {
     let dataOffices = await getAllOfficesCodeAndCity()
     let dataClients = await getAllClientsFromSpain()
     // let dataEmployeesSaleAgent = await getEmployeesSaleAgent()
-    let res = await fetch ("http://localhost:5502/employees?position=Representante%20Ventas")
+    let res = await fetch ("http://localhost:5412/employees?position=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = new Set()
 

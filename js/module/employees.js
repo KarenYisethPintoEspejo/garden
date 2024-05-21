@@ -1,7 +1,7 @@
 // 3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe 
 // tiene un código de jefe igual a 7.
 export const getAllEmployeesWithBossAndCodeSeven = async() =>{
-    let res = await fetch("http://localhost:5502/employees?code_boss=7")
+    let res = await fetch("http://localhost:5412/employees?code_boss=7")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -17,7 +17,7 @@ export const getAllEmployeesWithBossAndCodeSeven = async() =>{
 // 4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la 
 // empresa.
 export const getBossFullNameAndEmail = async()=>{
-    let res = await fetch("http://localhost:5502/employees");
+    let res = await fetch("http://localhost:5412/employees");
     let data = await res.json();
     let dataUpdate = {};
     data.forEach(val => {
@@ -33,7 +33,7 @@ export const getBossFullNameAndEmail = async()=>{
 //5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados 
 // que no sean representantes de ventas.
 export const getAllNotRV = async()=>{
-    let res = await fetch("http://localhost:5502/employees?position_ne=Representante%20Ventas")
+    let res = await fetch("http://localhost:5412/employees?position_ne=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -48,7 +48,7 @@ export const getAllNotRV = async()=>{
 
 // 2.  1. Obtener empleados que son Representantes de ventas
 export const getEmployeesSaleAgent = async () => {
-    let res = await fetch("http://localhost:5502/employees?position=Representante%20Ventas")
+    let res = await fetch("http://localhost:5412/employees?position=Representante%20Ventas")
     let data = await res.json()
     let dataUpdate = []
     data.forEach(val => {
@@ -64,7 +64,7 @@ export const getEmployeesSaleAgent = async () => {
 
 // 2.  2. Obtener empleados que son Representantes de ventas
 export const getEmployeesSaleAgent2 = async () => {
-    let res = await fetch("http://localhost:5502/employees?position=Representante%20Ventas")
+    let res = await fetch("http://localhost:5412/employees?position=Representante%20Ventas")
     let data = await res.json()
     let dataUpdate = []
     data.forEach(val => {
@@ -80,7 +80,7 @@ export const getEmployeesSaleAgent2 = async () => {
 // 2.8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
 
 export const getAllEmployeesWithBoss = async() => {
-    let res = await fetch("http://localhost:5502/employees")
+    let res = await fetch("http://localhost:5412/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 
@@ -101,7 +101,7 @@ export const getAllEmployeesWithBoss = async() => {
 // 2.9. Devuelve un listado que muestre el nombre de cada empleados, el nombre de su jefe y el nombre del jefe de sus jefe.
 
 export const getAllEmployeesWithBossAndBoss = async() => {
-    let res = await fetch("http://localhost:5502/employees")
+    let res = await fetch("http://localhost:5412/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 
